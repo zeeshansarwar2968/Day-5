@@ -1,0 +1,401 @@
+QUESTION-1:
+Do the below programs in anonymous function & IIFE
+Print odd numbers in an array
+Convert all the strings to title caps in a string array
+Sum of all numbers in an array
+Return all the prime numbers in an array
+Return all the palindromes in an array
+Return median of two sorted arrays of same size
+Remove duplicates from an array
+Rotate an array by k times
+
+ANSWER::
+
+a.Print odd numbers in an array
+
+CODE(anonymous function):
+
+var oddSeparator = function (num){
+    for(let i = 0; i< num.length; i++){
+        if(num[i]%2 !== 0){
+            console.log(num[i]);
+        }
+    }
+}
+
+oddSeparator([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+
+CODE(IIFE function):
+
+(function(num){                        //another way is to declare a variable
+    for(let i = 0; i< num.length; i++){            
+        if(num[i]%2 !== 0){
+            console.log(num[i]);       //or we can use return statement
+        }
+    }
+})([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+
+
+OUTPUT:
+
+script.js:226 1
+script.js:226 3
+script.js:226 5
+script.js:226 7
+script.js:226 9
+script.js:226 11
+script.js:226 13
+script.js:226 15
+script.js:226 17
+script.js:226 19
+
+
+b.Convert all the strings to title caps in a string array
+
+CODE(anonymous function):
+
+var stringUpper = function (str){
+    for(let i = 0; i< str.length; i++){
+        
+        console.log(str[i].toUpperCase());
+    
+    }
+}
+
+stringUpper(['guvi','geek','developer','fullStack'])
+
+CODE(IIFE function):
+
+(function (str){
+    for(let i = 0; i< str.length; i++){
+        
+        console.log(str[i].toUpperCase());
+    
+    }
+})(['guvi','geek','developer','fullStack'])
+
+
+
+OUTPUT:
+
+script.js:226 GUVI
+script.js:226 GEEK
+script.js:226 DEVELOPER
+script.js:226 FULLSTACK
+
+
+c.Sum of all numbers in an array
+
+CODE(anonymous function):
+
+var sumArray = function (num){
+    var sum1 = 0;
+    for(let i = 0; i< num.length; i++){
+        sum1 = sum1 + num[i];
+        }
+    console.log(sum1);
+    }
+
+sumArray([1,2,3,4,5,6,7,8,9,10])
+
+CODE(IIFE function):
+
+(function (num){
+    var sum1 = 0;
+    for(let i = 0; i< num.length; i++){
+        sum1 = sum1 + num[i];
+        }
+    console.log(sum1);
+    })([1,2,3,4,5,6,7,8,9,10])
+
+OUTPUT:
+
+script.js:228 55
+
+
+d.Return all the prime numbers in an array
+
+CODE(anonymous function):
+
+var primeTest =function(num) {
+    for (var i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return num>1;
+  };
+let arr1 =[3,5,17,11,13,15,19,21,23,24];
+console.log(arr1.filter(primeTest));
+
+CODE(IIFE function):
+
+var arr1 = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+arr1 = arr1.filter(((num) {
+  for (var i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return num>1;
+}));
+
+console.log(arr1);
+
+
+OUTPUT:
+
+  script.js:20 (7) [3, 5, 17, 11, 13, 19, 23]
+
+
+e.Return all the palindromes in an array
+
+CODE(anonymous function):
+
+var palindromes = function (arr1){    
+    for(let i = 0; i<arr1.length; i++){    
+        let palin = arr1[i].toString().split("").reverse().join("")
+        if(palin == arr1[i])(
+            console.log(arr1[i])
+        )
+            }
+        }
+
+palindromes([121,6776,'ara',19891,122,'arr'])
+
+CODE(IIFE function):
+
+(function (arr1){    
+    for(let i = 0; i<arr1.length; i++){    
+        let palin = arr1[i].toString().split("").reverse().join("")
+        if(palin == arr1[i])(
+            console.log(arr1[i])
+        )
+            }
+        })([121,6776,'ara',19891,122,'arr'])
+
+
+
+OUTPUT:
+
+script.js:283 121
+script.js:283 6776
+script.js:283 ara
+script.js:283 19891
+
+
+f.Return median of two sorted arrays of same size
+
+// The below code is under the assumption tthat the requirement is simply the median of two 
+sorted arrays, ingnoring other factors due to lack of explicit instructions.
+
+CODE(anonymous function):
+
+var getMedian = function (arr1,arr2){
+    var arr3 = [...arr1,...arr2].sort();
+    var mlen = arr3.length/2
+    median = (arr3[mlen]+arr3[mlen+1])/2
+    console.log(median)
+        }        
+
+getMedian([1,2,4,5,6],[3,4,7,6,8])
+
+CODE(IIFE function):
+
+(function (arr1,arr2){
+    var arr3 = [...arr1,...arr2].sort();
+    var mlen = arr3.length/2
+    median = (arr3[mlen]+arr3[mlen+1])/2
+    console.log(median)
+        })([1,2,4,5,6],[3,4,7,6,8])        
+
+
+OUTPUT:
+script.js:283 5.5
+
+g.Remove duplicates from an array
+
+CODE(anonymous function):
+
+var getUnique = function (array){
+    let arr1 = [];
+    for(let i = 0; i< array.length; i++){
+        if(arr1.indexOf(array[i])=== -1){
+            arr1.push(array[i]);
+        }
+    }
+    console.log(arr1);
+}
+
+getUnique([1,2,3,4,5,6,5,3,1,4,4,2,3,2])
+
+CODE(IIFE function):
+
+(function (array){
+    let arr1 = [];
+    for(let i = 0; i< array.length; i++){
+        if(arr1.indexOf(array[i])=== -1){
+            arr1.push(array[i]);
+        }
+    }
+    console.log(arr1);
+})([1,2,3,4,5,6,5,3,1,4,4,2,3,2])
+
+
+OUTPUT:
+script.js:8 
+(6) [1, 2, 3, 4, 5, 6]
+
+
+h.Rotate an array by k times
+
+CODE(anonymous function):
+
+var rotate = function (array){
+    let arr1 = [];
+    for(let i = array.length-1; i>= 0; i--){
+        
+        arr1.push(array[i]);
+        
+    }
+    console.log(arr1);
+}
+
+rotate([1,2,3,4,5])
+
+CODE(IIFE function):
+
+(function (array){
+    let arr1 = [];
+    for(let i = array.length-1; i>= 0; i--){
+        
+        arr1.push(array[i]);
+        
+    }
+    console.log(arr1);
+})([1,2,3,4,5])
+
+
+OUTPUT:
+script.js:8 
+(5) [5, 4, 3, 2, 1]
+
+
+
+QUESTION-3:
+
+Do the below programs in arrow functions
+Print odd numbers in an array
+Convert all the strings to title caps in a string array
+Sum of all numbers in an array
+Return all the prime numbers in an array
+Return all the palindromes in an array
+
+ANSWER::
+
+A.Print odd numbers in an array
+
+CODE( arrow function):
+
+var oddSeparator = (num)=>{
+    for(let i = 0; i< num.length; i++){
+        if(num[i]%2 !== 0){
+            console.log(num[i]);
+        }
+    }
+}
+
+oddSeparator([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+
+OUTPUT:
+
+script.js:25 1
+script.js:25 3
+script.js:25 5
+script.js:25 7
+script.js:25 9
+script.js:25 11
+script.js:25 13
+script.js:25 15
+script.js:25 17
+script.js:25 19
+
+B.Convert all the strings to title caps in a string array
+
+CODE( arrow function):
+
+var stringUpper = (str)=>{
+    for(let i = 0; i< str.length; i++){
+        
+        console.log(str[i].toUpperCase());
+    
+    }
+}
+
+stringUpper(['guvi','geek','developer','fullStack'])
+
+
+OUTPUT:
+
+script.js:25 GUVI
+script.js:25 GEEK
+script.js:25 DEVELOPER
+script.js:25 FULLSTACK
+
+
+C.Sum of all numbers in an array
+
+CODE( arrow function):
+
+var sumArray = (num)=>{
+    var sum1 = 0;
+    for(let i = 0; i< num.length; i++){
+        sum1 = sum1 + num[i];
+        }
+    console.log(sum1);
+    }
+
+sumArray([1,2,3,4,5,6,7,8,9,10])
+
+
+OUTPUT:
+
+script.js:27 55
+
+D.Return all the prime numbers in an array
+
+CODE( arrow function):
+
+var primeTest =(num)=> {
+    for (var i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return num>1;
+  };
+let arr1 =[3,5,17,11,13,15,19,21,23,24];
+console.log(arr1.filter(primeTest));
+
+OUTPUT:
+
+script.js:29
+(7) [3, 5, 17, 11, 13, 19, 23]
+
+E.Return all the palindromes in an array
+
+CODE( arrow function):
+
+var palindromes = (arr1)=>{    
+    for(let i = 0; i<arr1.length; i++){    
+        let palin = arr1[i].toString().split("").reverse().join("")
+        if(palin == arr1[i])(
+            console.log(arr1[i])
+        )
+            }
+        }
+
+palindromes([121,6776,'ara',19891,122,'arr'])
+
+
+OUTPUT:
+
+script.js:26 121
+script.js:26 6776
+script.js:26 ara
+script.js:26 19891
